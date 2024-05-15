@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const app = express();
 
-const port = 3000;
+const port = process.env.PORT || 3000; // Usar el puerto definido por la variable de entorno PORT o 10000 como valor predeterminado
 app.use(cors()); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

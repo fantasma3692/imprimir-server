@@ -1,22 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const printer = require('pdf-to-printer');
+const printer = require('printer'); // Importa la librería node-printer
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const pdf = require('html-pdf');
 const app = express();
+const port = 3000;
 
-const port = process.env.PORT || 3000; // Usar el puerto definido por la variable de entorno PORT o 10000 como valor predeterminado
-app.use(cors()); 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 // Endpoint para obtener la lista de impresoras disponibles
 app.get('/printers', async (req, res) => {
   try {
     // Utiliza printer.getPrinters() para obtener la lista de impresoras
-    const printers = await printer.getPrinters();
+    const printers = printer.getPrinters();
     res.json(printers);
   } catch (error) {
     console.error('Error al obtener las impresoras:', error);
@@ -32,25 +32,29 @@ app.post('/print', async (req, res) => {
   }
 
   const pdfPath = path.join(__dirname, 'temp.pdf');
-  
+
   try {
-    // Aquí deberías generar el PDF a partir del contenido
-    // Para simplicidad, asumiremos que content es un HTML y usamos una librería para convertirlo en PDF
-    const pdf = require('html-pdf');
+    console.log('Generando PDF...');
     pdf.create(content).toFile(pdfPath, async (err, result) => {
-      if (err) return res.status(500).send('Error al crear el PDF');
+      if (err) {
+        console.error('Error al crear el PDF:', err);
+        return res.status(500).send('Error al crear el PDF');
+      }
       
       try {
-        await printer.print(result.filename, options);
+        console.log('Imprimiendo PDF...');
+        printer.printFile({ filename: result.filename, printer: options.printer }); // Imprime el archivo con la impresora seleccionada
         res.send('Impresión enviada');
       } catch (printError) {
+        console.error('Error al imprimir el PDF:', printError);
         res.status(500).send('Error al imprimir el PDF');
       } finally {
-        // Elimina el archivo temporal después de imprimir
+        console.log('Eliminando archivo temporal...');
         fs.unlinkSync(result.filename);
       }
     });
   } catch (error) {
+    console.error('Error general:', error);
     res.status(500).send(error.message);
   }
 });
