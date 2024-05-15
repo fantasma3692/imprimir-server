@@ -1,10 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const printer = require('pdf-to-printer');
+ const printer = require('pdf-to-printer');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const app = express();
+// const printer = require('printer');
 // const wmi = require('wmi-client');
 const { exec } = require('child_process');
 const port = process.env.PORT || 3000; // Usar el puerto definido por la variable de entorno PORT o 10000 como valor predeterminado
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Función para obtener la lista de impresoras disponibles
 function getPrinters() {
   return new Promise((resolve, reject) => {
-    exec('wmic printer get name', (error, stdout, stderr) => {
+    exec('lpstat -p -d', (error, stdout, stderr) => {
       if (error) {
         reject(error);
       } else {
