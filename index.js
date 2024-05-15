@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Función para obtener la lista de impresoras disponibles
 function getPrinters() {
   return new Promise((resolve, reject) => {
-    const command = process.platform === 'win32' ? 'wmic printer get name' : 'lpstat -p -d';
+    const command = 'wmic printer get name';
     exec(command, (error, stdout, stderr) => {
       if (error) {
         reject(error);
