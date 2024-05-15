@@ -625,13 +625,6 @@ negotiator@0.6.3:
   resolved "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-node-printer@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/node-printer/-/node-printer-1.0.4.tgz"
-  integrity sha512-6xutsd4vaZe7eBLoLtnunulfZxZ0pfgzN+tJGAvhfwnBo2CNQoG7RpUWxy5JD6fiChMoK7O23HCXdu1Idrotpg==
-  dependencies:
-    underscore ">=1.3.3"
-
 oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz"
@@ -953,11 +946,6 @@ typedarray@^0.0.6:
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-underscore@>=1.3.3:
-  version "1.13.6"
-  resolved "https://registry.npmjs.org/underscore/-/underscore-1.13.6.tgz"
-  integrity sha512-+A5Sja4HP1M08MaXya7p5LvjuM7K6q/2EaC0+iovj/wOcMsTzMvDFbasi/oSapiwOlt252IqsKqPjCl7huKS0A==
-
 unpipe@~1.0.0, unpipe@1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz"
@@ -1005,11 +993,6 @@ which@^1.2.10:
   integrity sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==
   dependencies:
     isexe "^2.0.0"
-
-wmi-client@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.npmjs.org/wmi-client/-/wmi-client-0.5.0.tgz"
-  integrity sha512-QlbQn5n4MONYTMlsm0iABvSGKe7fE/vs76dwuZDBo5d3GiqyzJ1nvWAKk6MQIhhfUg2C8wzVW8GvraFtvzh1cg==
 
 yauzl@^2.10.0:
   version "2.10.0"

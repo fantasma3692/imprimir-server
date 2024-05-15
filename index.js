@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const wmi = require('wmi-client');
+// const wmi = require('wmi-client');
 const { exec } = require('child_process');
 const port = process.env.PORT || 3000; // Usar el puerto definido por la variable de entorno PORT o 10000 como valor predeterminado
 app.use(cors()); 
